@@ -1,0 +1,45 @@
+<% if @book.errors.present? %>
+  <%= @book.errors.full_messages %>
+<% end %>
+
+<%= form_for @book do |form| %>
+  <table>
+    <tr>
+      <td>
+        <%= form.label :title %>
+      </td>
+      <td>
+        <%= form.text_field :title %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= form.label :body %>
+      </td>
+      <td>
+        <%= form.text_area :body %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= form.label :Author %>
+      </td>
+      <td>
+        <%= form.select :author_id, options_for_select(Author.all.map{ |a|[a.full_name, a.id] })%>
+      </td>
+    </tr>
+<tr>
+      <td>
+        <%= form.label :Category %>
+      </td>
+      <td>
+        <%= form.select :category, options_for_select(CateoryList.all.map{ |a|[a.category, a.id] })%>
+      </td>
+    </tr>
+
+  </table>
+  <%= form.submit %>
+  <%= link_to 'Cancel', books_url, method: :get %>
+<% end %>
+
+

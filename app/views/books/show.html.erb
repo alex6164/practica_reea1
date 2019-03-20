@@ -1,0 +1,15 @@
+
+ <% if @book.errors.present? %>
+  <%= @book.errors.full_messages %>
+<% end %>
+
+
+<h3><%= @book.title %></h3>
+</b>
+<p><%= @book.body %></p>
+<p><%= @book.cat%></p>
+
+<hr>
+<b>
+<h7> <%= link_to 'Book list', books_url %></h7>
+</b>
