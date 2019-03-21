@@ -22,20 +22,57 @@
     </tr>
     <tr>
       <td>
-        <%= form.label :Author %>
+        <%= form.label :author %>
       </td>
       <td>
         <%= form.select :author_id, options_for_select(Author.all.map{ |a|[a.full_name, a.id] })%>
       </td>
     </tr>
 <tr>
+
       <td>
-        <%= form.label :Category %>
-      </td>
-      <td>
-        <%= form.select :category, options_for_select(CateoryList.all.map{ |a|[a.category, a.id] })%>
-      </td>
+        <%= form.label :categories %>
+      </td><table>
+  <tr>
+    <th>Roman</th>
+        <td>
+           <%= check_box("tag", tag.id, {checked: false}) %> 
+           
+        </td>    
+        
+    <th>Nuvela</th>
+        <td>
+           <%= check_box("tag", tag.id, {checked: false}) %> 
+           
+        </td>    
+        
+    <th>Economic</th>
+        <td>
+           <%= check_box("tag", tag.id, {checked: false}) %> 
+           
+        </td>    
+        
+    <th>Povestiri</th>
+        <td>
+           <%= check_box("tag", tag.id, {checked: false}) %> 
+           
+        </td>    
+        
     </tr>
+
+
+
+ <% @book.categories.each do |box| %>
+    <% if box.active? %>
+      <%= form.categories :form, box do |check| %>
+        Name: <%= check.text_field :name %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+
+
+
 
   </table>
   <%= form.submit %>

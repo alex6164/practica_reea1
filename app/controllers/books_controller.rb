@@ -2,6 +2,7 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.all
+    @categories=Category.all
   end
 
   def new
@@ -19,6 +20,7 @@ class BooksController < ApplicationController
 
   def show
     find_book
+    @category = @book.categories.first
   end
 
   def edit
@@ -54,6 +56,6 @@ class BooksController < ApplicationController
     end
 
     def book_params
-      params.require(:book).permit(:title, :body, :author_id)
+      params.require(:book).permit(:title, :body, :author_id,:category_id)
     end
 end
