@@ -7,7 +7,12 @@
 <h3><%= @book.title %></h3>
 </b>
 <p><%= @book.body %></p>
-<p><%#= @category.c%></p>
+
+<h2>Categorii</h2>
+<% @book.categories.each do |category| %>
+	<%= category.title %>
+	<br>
+<% end %>
 <p><%= @book.cat %></p>
 
 <hr>

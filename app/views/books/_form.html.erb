@@ -22,8 +22,6 @@
     </tr>
 
 
- 
-
     <tr>
       <td>
         <%= form.label :author %>
@@ -44,7 +42,7 @@
       <%= form.label (categ.title || 'Default categ title') %>  
       <%= form.check_box :category_ids, { multiple: true }, categ.id, nil %>
     <% end %>
-    
+
 </tr>
 
   </table>
