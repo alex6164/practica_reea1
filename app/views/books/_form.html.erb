@@ -20,6 +20,10 @@
         <%= form.text_area :body %>
       </td>
     </tr>
+
+
+ 
+
     <tr>
       <td>
         <%= form.label :author %>
@@ -33,46 +37,15 @@
       <td>
         <%= form.label :categories %>
       </td><table>
-  <tr>
-    <th>Roman</th>
-        <td>
-           <%= check_box("tag", tag.id, {checked: false}) %> 
-           
-        </td>    
-        
-    <th>Nuvela</th>
-        <td>
-           <%= check_box("tag", tag.id, {checked: false}) %> 
-           
-        </td>    
-        
-    <th>Economic</th>
-        <td>
-           <%= check_box("tag", tag.id, {checked: false}) %> 
-           
-        </td>    
-        
-    <th>Povestiri</th>
-        <td>
-           <%= check_box("tag", tag.id, {checked: false}) %> 
-           
-        </td>    
-        
-    </tr>
+<tr>
 
-
-
- <% @book.categories.each do |box| %>
-    <% if box.active? %>
-      <%= form.categories :form, box do |check| %>
-        Name: <%= check.text_field :name %>
-      <% end %>
+   <% categs = Category.all %>
+    <% categs.each do |categ| %>
+      <%= form.label (categ.title || 'Default categ title') %>  
+      <%= form.check_box :category_ids, { multiple: true }, categ.id, nil %>
     <% end %>
-  <% end %>
-
-
-
-
+    
+</tr>
 
   </table>
   <%= form.submit %>
