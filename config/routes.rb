@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-root 'books#index'
- resources :books
+  get 'categories/new'
+  root 'books#index'
 
-
+  resources :books
+  resources :categories
 end

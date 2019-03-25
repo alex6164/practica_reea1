@@ -1,0 +1,17 @@
+<h2>New category</h2>
+
+<%= form_for @category do |form| %>
+  <table>
+    <tr>
+      <td>
+        <%= form.label :title %>
+      </td>
+      <td>
+        <%= form.text_field :title %>
+      </td>
+    </tr>
+  
+  <%= form.submit %>
+  <%= button_to 'Cancel', books_url, method: :get %>
+
+<% end %>

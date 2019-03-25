@@ -8,6 +8,8 @@ class BooksController < ApplicationController
     @book = Book.new
   end
 
+  
+    
   def create
     @book = Book.new(book_params)
     if @book.save
@@ -19,7 +21,6 @@ class BooksController < ApplicationController
 
   def show
     find_book
-    @category = @book.categories.first
   end
 
   def edit
@@ -53,6 +54,8 @@ class BooksController < ApplicationController
     def find_book
       @book = Book.find(params[:id])
     end
+
+  
 
     def book_params
       params.require(:book).permit(:title, :body, :author_id,:category_ids => [])

@@ -42,12 +42,16 @@
       <%= form.label (categ.title || 'Default categ title') %>  
       <%= form.check_box :category_ids, { multiple: true }, categ.id, nil %>
     <% end %>
+  <%= link_to 'New category', categories_new_url,method: :get %>
+
 
 </tr>
 
   </table>
   <%= form.submit %>
   <%= link_to 'Cancel', books_url, method: :get %>
+  <br>
+
 <% end %>
 
 
