@@ -12,7 +12,7 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(categ_params)
     if @category.save
-      redirect_to categories_new_url(@category)
+      redirect_to books_url(@category)
     else
       render :new
     end
