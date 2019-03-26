@@ -1,0 +1,13 @@
+<h1>Category list</h1>
+<%= button_to 'New Category', new_category_url, method: :get %>
+<%= button_to 'Books', books_url, method: :get %>
+
+<br>
+<% @category.each do |categ| %>
+  <%= categ.title %>
+  <div class="actions" style="float:right;">
+    <%= link_to "Edit", edit_category_url(categ) %>
+    <%= link_to "Remove", category_url(categ), method: :delete, data: { confirm: "Are you sure?" }  %>
+  </div>
+  <hr style="clear:both;">
+<% end %>

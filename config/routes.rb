@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'categories/new'
+  get 'users/new'
   root 'books#index'
 
   resources :books
