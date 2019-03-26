@@ -4,4 +4,14 @@ https://www.javatpoint.com/ruby-on-rails-save-record ---->login---->sau asta--->
 
 
 de descarcat pentru editat text--->sublime Text
+
+
+
+
 $ rails g migration addFullNameToAuthors full_name:string
+
+
+
+git commit -m "master"
+
+git push -u origin master
